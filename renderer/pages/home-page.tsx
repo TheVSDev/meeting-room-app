@@ -1,10 +1,11 @@
 import HeadPage from "../web/components/HeadPage"
+import FreeRoom from "../web/components/FreeRoom"
 
 const HomePage = () => {
     return (
         <>
             <HeadPage />
-            <h1>Meeting Room App</h1>
+            <FreeRoom />
         </>
     )
 }

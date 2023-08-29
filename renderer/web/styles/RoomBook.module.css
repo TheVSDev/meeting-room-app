@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&family=Poppins&display=swap');
+
+.body {
+    margin: 0;
+    font-family: 'Nunito Sans', sans-serif;
+    display: grid; 
+    grid-template-columns: 1fr 1fr; /* Divide the page into two equal columns */
+    height: 100vh; /* Use the full viewport height */
+}
+
+.containerLeft {
+    background-color: #13aa52;
+    display: flex; /* Use flexbox to center the icon vertically and horizontally */
+    align-items: center;
+    justify-content: center;
+    position: fixed; /* Fix the position */
+    top: 0;
+    left: 0;
+    height: 100vh; /* Occupy full height */
+    width: 50%; /* Occupy half width */
+}
+
+.btnSchedule {
+    font-size: 190px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+.plus {
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 80px;
+    font-family: 'Nunito Sans', sans-serif;
+    color: white;
+    position: absolute;
+    top: 43px;
+}
