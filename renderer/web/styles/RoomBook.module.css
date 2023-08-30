@@ -43,5 +43,12 @@
     font-family: 'Nunito Sans', sans-serif;
     color: white;
     position: absolute;
-    top: 43px;
+    top: 84px;
+}
+
+.datetime {
+    position: absolute;
+    top: 57px;
+    font-size: 20px;
+    color: white;
 }
