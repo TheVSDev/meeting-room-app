@@ -2,10 +2,12 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/RoomBook.module.css";
 import RoomBookTitle from "./RoomBookTitle";
+import BookRoomForm from "./BookRoomForm";
 
 // FreeRoom
 const FreeRoom = () => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  const [isFormOpen, setIsFormOpen] = useState(false); // State to control the form visibility
 
   useEffect(() => {
     const updateDateTime = () => {
@@ -31,6 +33,10 @@ const FreeRoom = () => {
     return date.toLocaleTimeString(undefined, options);
   };
 
+  const openForm = () => {
+    setIsFormOpen(true);
+  };
+
   return (
     <div className={styles.body}>
       <div className={styles.containerLeft}>
@@ -38,10 +44,11 @@ const FreeRoom = () => {
         <span className={styles.datetime}>
           {formatTime(currentDateTime)} | {formatDate(currentDateTime)}
         </span>
-        <button className={styles.btnSchedule}>
+        <button className={styles.btnSchedule} onClick={openForm}>
           <span className={styles.plus}>+</span>
         </button>
       </div>
+      {isFormOpen && <BookRoomForm />} {/* Conditionally render the form */}
     </div>
   );
 };
