@@ -52,3 +52,32 @@
     font-size: 20px;
     color: white;
 }
+
+.time {
+    position: absolute;
+    top: 200px;
+    font-size: 20px;
+    color: white;
+}
+
+.customScheduleButton {
+    font-size: 24px;
+    color: white;
+    background-color: rgba(167, 156, 156, 0.5); 
+    padding: 10px;
+    border-radius: 19px;
+    margin-left: 28px;
+    position: absolute;
+    top: 500px;
+    width: 500px;
+}
+
+.cancelButton {
+    position: absolute;
+    font-size: 30px; 
+    bottom: 0;
+    color: #fff;
+    background-color: red;
+    width: 100%;
+    padding: 10px;
+}

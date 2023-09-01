@@ -1,40 +1,42 @@
-// Imports
+// FreeRoom.js
+
 import React, { useState, useEffect } from "react";
 import styles from "../styles/RoomBook.module.css";
 import RoomBookTitle from "./RoomBookTitle";
 import BookRoomForm from "./BookRoomForm";
 
-// FreeRoom
 const FreeRoom = () => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
-  const [isFormOpen, setIsFormOpen] = useState(false); // State to control the form visibility
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   useEffect(() => {
     const updateDateTime = () => {
       setCurrentDateTime(new Date());
     };
 
-    // Update the current date and time every second
     const intervalId = setInterval(updateDateTime, 1000);
 
-    // Clean up the interval when the component unmounts
     return () => {
       clearInterval(intervalId);
     };
   }, []);
 
   const formatDate = (date) => {
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
     return date.toLocaleDateString(undefined, options);
   };
 
   const formatTime = (date) => {
-    const options = { hour: 'numeric', minute: 'numeric', hour12: true };
+    const options = { hour: "numeric", minute: "numeric", hour12: true };
     return date.toLocaleTimeString(undefined, options);
   };
 
   const openForm = () => {
     setIsFormOpen(true);
+  };
+
+  const closeForm = () => {
+    setIsFormOpen(false);
   };
 
   return (
@@ -48,7 +50,7 @@ const FreeRoom = () => {
           <span className={styles.plus}>+</span>
         </button>
       </div>
-      {isFormOpen && <BookRoomForm />} {/* Conditionally render the form */}
+      {isFormOpen && <BookRoomForm onClose={closeForm} />} {/* Pass onClose function */}
     </div>
   );
 };
