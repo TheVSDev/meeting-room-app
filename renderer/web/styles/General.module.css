@@ -59,3 +59,10 @@
     border-radius: 19px;
     margin-left: 28px;
 }
+
+.plusButton {
+    position: absolute;
+    right: 10px;
+    width: 70px;
+    top: 0;
+}
