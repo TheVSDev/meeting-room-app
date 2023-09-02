@@ -4,10 +4,12 @@ import React, { useState, useEffect } from "react";
 import styles from "../styles/RoomBook.module.css";
 import TimeButton from "./TimeButton";
 import RoomBookTitle from "./RoomBookTitle";
+import CustomScheduleForm from "./CustomScheduleForm";
 
 // BookRoomForm form
 const BookRoomForm = ({ onClose }) => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   useEffect(() => {
     const updateDateTime = () => {
@@ -28,6 +30,16 @@ const BookRoomForm = ({ onClose }) => {
     return date.toLocaleTimeString(undefined, options);
   };
 
+  // openForm function
+  const openForm = () => {
+      setIsFormOpen(true);
+    };
+    
+    // closeForm function
+  const closeForm = () => {
+      setIsFormOpen(false);
+  };
+
   return (
     <div className={styles.body}>
     <div className={styles.containerLeft}>
@@ -36,11 +48,12 @@ const BookRoomForm = ({ onClose }) => {
       <TimeButton btnLabel="15 min" />
       <TimeButton btnLabel="30 min" />
       <TimeButton btnLabel="45 min" />
-      <button className={styles.customScheduleButton}>Custom Schedule</button>
+      <button className={styles.customScheduleButton} onClick={openForm}>Custom Schedule</button>
       <button className={styles.cancelButton} onClick={onClose}>
         Cancel
       </button>
     </div>
+    {isFormOpen && <CustomScheduleForm onClose={closeForm} />}
   </div>
   );
 };

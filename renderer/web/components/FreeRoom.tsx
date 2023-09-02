@@ -1,6 +1,6 @@
 // FreeRoom.js
-
 import React, { useState, useEffect } from "react";
+
 import styles from "../styles/RoomBook.module.css";
 import RoomBookTitle from "./RoomBookTitle";
 import BookRoomForm from "./BookRoomForm";
@@ -14,8 +14,10 @@ const FreeRoom = () => {
       setCurrentDateTime(new Date());
     };
 
+    // Update the current date and time every second
     const intervalId = setInterval(updateDateTime, 1000);
 
+    // Clean up the interval when the component unmounts
     return () => {
       clearInterval(intervalId);
     };
@@ -31,13 +33,15 @@ const FreeRoom = () => {
     return date.toLocaleTimeString(undefined, options);
   };
 
+  // openForm function
   const openForm = () => {
     setIsFormOpen(true);
   };
-
-  const closeForm = () => {
+  
+  // closeForm function
+const closeForm = () => {
     setIsFormOpen(false);
-  };
+};
 
   return (
     <div className={styles.body}>
@@ -50,7 +54,7 @@ const FreeRoom = () => {
           <span className={styles.plus}>+</span>
         </button>
       </div>
-      {isFormOpen && <BookRoomForm onClose={closeForm} />} {/* Pass onClose function */}
+      {isFormOpen && <BookRoomForm onClose={closeForm} />}
     </div>
   );
 };
