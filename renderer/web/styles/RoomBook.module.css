@@ -81,3 +81,84 @@
     width: 100%;
     padding: 10px;
 }
+
+.cancelButton2 {
+    position: absolute;
+    font-size: 30px;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    background-color: red;
+    width: 50%;
+    padding: 10px;
+}
+
+.saveButton {
+    position: absolute;
+    font-size: 30px; 
+    left: 0;
+    bottom: 0;
+    color: #fff;
+    background-color: rgb(0, 162, 255);
+    width: 50%;
+    padding: 10px;
+}
+
+
+.datePick {
+    margin-bottom: 20px;
+    position: absolute;
+    top: 250px;
+    left: 290px;
+}
+
+.fromTimePick {
+    position: absolute;
+    top: 360px;
+    left: 240px;
+}
+
+.toTimePick {
+    position: absolute;
+    top: 360px;
+    left: 400px;
+}
+
+.forTimePick {
+    position: absolute;
+    top: 360px;
+    left: 350px;
+}
+
+.datePick label,
+.fromTimePick label,
+.toTimePick label,
+.forTimePick label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: white;
+}
+  
+.datePick input,
+.fromTimePick input,
+.toTimePick input
+.forTimePick input {
+    display: block;
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.radioButtons {
+    position: absolute;
+    top: 200px;
+}
+
+.spanSchedule {
+    position: absolute;
+    bottom: 130px;
+    font-size: 20px;
+    color: white;
+}
