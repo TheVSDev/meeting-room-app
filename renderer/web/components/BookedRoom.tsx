@@ -1,14 +1,11 @@
-// Imports
-import React, { useState, useEffect } from "react";
+// FreeRoom.js
+import { useState, useEffect } from "react";
 
 import styles from "../styles/RoomBook.module.css";
 import RoomBookTitle from "./RoomBookTitle";
-import BookRoomForm from "./BookRoomForm";
 
-// FreeRoom component
-const FreeRoom = () => {
+const BookedRoom = () => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
-  const [isFormOpen, setIsFormOpen] = useState(false);
 
   useEffect(() => {
     const updateDateTime = () => {
@@ -25,7 +22,12 @@ const FreeRoom = () => {
   }, []);
 
   const formatDate = (date) => {
-    const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
     return date.toLocaleDateString(undefined, options);
   };
 
@@ -34,30 +36,19 @@ const FreeRoom = () => {
     return date.toLocaleTimeString(undefined, options);
   };
 
-  // openForm function
-  const openForm = () => {
-    setIsFormOpen(true);
-  };
-  
-  // closeForm function
-const closeForm = () => {
-    setIsFormOpen(false);
-};
-
   return (
     <div className={styles.body}>
-      <div className={styles.containerLeftFree}>
-        <RoomBookTitle titleLabel="FREE" />
+      <div className={styles.containerLeftBooked}>
+        <RoomBookTitle titleLabel="BOOKED" />
         <span className={styles.datetime}>
           {formatTime(currentDateTime)} | {formatDate(currentDateTime)}
         </span>
-        <button className={styles.btnSchedule} onClick={openForm}>
-          <span className={styles.plus}>+</span>
+        <button className={styles.timerContainer}>
+          <span className={styles.timer}></span>
         </button>
       </div>
-      {isFormOpen && <BookRoomForm onClose={closeForm} />}
     </div>
   );
 };
 
-export default FreeRoom;
+export default BookedRoom;

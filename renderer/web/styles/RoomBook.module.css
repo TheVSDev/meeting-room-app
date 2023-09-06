@@ -8,7 +8,7 @@
     height: 100vh; /* Use the full viewport height */
 }
 
-.containerLeft {
+.containerLeftFree {
     background-color: #13aa52;
     display: flex; /* Use flexbox to center the icon vertically and horizontally */
     align-items: center;
@@ -20,7 +20,33 @@
     width: 50%; /* Occupy half width */
 }
 
+.containerLeftBooked {
+    background-color: #cf0f0f;
+    display: flex; /* Use flexbox to center the icon vertically and horizontally */
+    align-items: center;
+    justify-content: center;
+    position: fixed; /* Fix the position */
+    top: 0;
+    left: 0;
+    height: 100vh; /* Occupy full height */
+    width: 50%; /* Occupy half width */
+}
+
 .btnSchedule {
+    font-size: 190px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+.timerContainer {
     font-size: 190px;
     width: 200px;
     height: 200px;
