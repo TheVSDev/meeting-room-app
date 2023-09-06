@@ -25,7 +25,7 @@ const CustomScheduleForm = ({ onClose }) => {
 
   return (
     <div className={styles.body}>
-      <div className={styles.containerLeft}>
+      <div className={styles.containerLeftFree}>
         <RoomBookTitle titleLabel="BOOKING" />
 
         <div className={styles.radioButtons}>

@@ -42,7 +42,7 @@ const BookRoomForm = ({ onClose }) => {
 
   return (
     <div className={styles.body}>
-    <div className={styles.containerLeft}>
+    <div className={styles.containerLeftFree}>
       <RoomBookTitle titleLabel="BOOKING" />
       <span className={styles.time}>Today at {formatTime(currentDateTime)}</span>
       <TimeButton btnLabel="15 min" />
