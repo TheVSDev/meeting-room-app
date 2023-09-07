@@ -1,10 +1,10 @@
 import styles from "../styles/General.module.css";
 
-const TimeButton = (props: { btnLabel: any }) => {
-    const { btnLabel } = props
+const TimeButton = (props: { btnLabel: any, onClick: any }) => {
+    const { btnLabel, onClick } = props
 
     return (
-        <button className={styles.btnTime}>{btnLabel}</button>
+        <button className={styles.btnTime} onClick={onClick}>{btnLabel}</button>
     )
 }
 

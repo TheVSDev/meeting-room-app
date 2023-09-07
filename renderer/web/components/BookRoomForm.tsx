@@ -1,17 +1,17 @@
-// Imports
 import React, { useState, useEffect } from "react";
-
 import styles from "../styles/RoomBook.module.css";
 import TimeButton from "./TimeButton";
 import RoomBookTitle from "./RoomBookTitle";
 import CustomScheduleForm from "./CustomScheduleForm";
 import ScheduleNowForm from "./ScheduleNowForm";
+import BookedRoom from "./BookedRoom";
 
 // BookRoomForm form
 const BookRoomForm = ({ onClose }) => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isScheduleNowFormOpen, setIsScheduleNowFormOpen] = useState(false);
+  const [countdownTime, setCountdownTime] = useState(0); // Add countdownTime state
 
   useEffect(() => {
     const updateDateTime = () => {
@@ -52,6 +52,11 @@ const BookRoomForm = ({ onClose }) => {
     setIsScheduleNowFormOpen(false);
   };
 
+  // Handler to set countdownTime based on the clicked TimeButton
+  const handleTimeButtonClick = (time) => {
+    setCountdownTime(time);
+  };
+
   return (
     <div className={styles.body}>
       <div className={styles.containerLeftFree}>
@@ -60,12 +65,12 @@ const BookRoomForm = ({ onClose }) => {
           Today at {formatTime(currentDateTime)}
         </span>
         <div className="grid grid-cols-3 gap-4">
-          <TimeButton btnLabel="15 min" />
-          <TimeButton btnLabel="30 min" />
-          <TimeButton btnLabel="45 min" />
-          <TimeButton btnLabel="1h 30 min" />
-          <TimeButton btnLabel="1h 45 min" />
-          <TimeButton btnLabel="2h 10 min" />
+          <TimeButton btnLabel="15 min" onClick={() => handleTimeButtonClick(15)} />
+          <TimeButton btnLabel="30 min" onClick={() => handleTimeButtonClick(30)} />
+          <TimeButton btnLabel="45 min" onClick={() => handleTimeButtonClick(45)} />
+          <TimeButton btnLabel="1h 30 min" onClick={() => handleTimeButtonClick(90)} />
+          <TimeButton btnLabel="1h 45 min" onClick={() => handleTimeButtonClick(105)} />
+          <TimeButton btnLabel="2h 10 min" onClick={() => handleTimeButtonClick(130)} />
         </div>
         <button className={styles.scheduleNowButton} onClick={openScheduleNowForm}>
           Schedule For Now
@@ -79,6 +84,7 @@ const BookRoomForm = ({ onClose }) => {
       </div>
       {isFormOpen && <CustomScheduleForm onClose={closeForm} />}
       {isScheduleNowFormOpen && <ScheduleNowForm onClose={closeScheduleNowForm} />}
+      {countdownTime > 0 && <BookedRoom countdownTime={countdownTime} />}
     </div>
   );
 };
